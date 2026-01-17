@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mojave Retreats | Desert Land for Sale — Seller Financing Available</title>
+    <meta name="description" content="Own a piece of the California High Desert. Land for sale in Joshua Tree, Yucca Valley, Wonder Valley. Seller financing available.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sand: #D4A574;
+            --sage: #9CAF88;
+            --terracotta: #C67B4E;
+            --charcoal: #2C2C2C;
+            --off-white: #FAF8F5;
+            --cream: #F5F0E8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--off-white); color: var(--charcoal); line-height: 1.6; }
+        
+        .container { width: 90%; max-width: 1200px; margin: auto; padding: 60px 0; }
+
+        /* Header/Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(44, 44, 44, 0.95);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        .logo { color: white; font-weight: 700; font-size: 1.2rem; text-decoration: none; }
+        .logo span { color: var(--sand); }
+        .nav-links a { color: white; text-decoration: none; margin-left: 25px; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--sand); }
+
+        /* Hero */
+        header {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), 
+                        url('hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 100px 20px 60px;
+        }
+
+        .hero-badge {
+            background: var(--terracotta);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        header h1 { font-size: 3.5rem; margin-bottom: 1rem; font-weight: 700; }
+        header p { font-size: 1.3rem; max-width: 650px; margin-bottom: 2rem; font-weight: 300; opacity: 0.95; }
+
+        .btn { 
+            background: var(--terracotta); 
+            color: white; 
+            padding: 16px 45px; 
+            text-decoration: none; 
+            border-radius: 4px; 
+            font-weight: 600; 
+            transition: all 0.3s;
+            border: 2px solid var(--terracotta);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn:hover { background: transparent; border-color: white; }
+        .btn-outline { background: transparent; border: 2px solid white; }
+        .btn-outline:hover { background: white; color: var(--charcoal); }
+
+        .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+
+        /* Value Props */
+        .value-props {
+            background: var(--charcoal);
+            color: white;
+            padding: 50px 5%;
+        }
+        .value-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        .value-item h3 { color: var(--sand); margin-bottom: 10px; font-size: 1.1rem; }
+        .value-item p { font-size: 0.9rem; opacity: 0.85; }
+        .value-icon { font-size: 2rem; margin-bottom: 15px; }
+
+        /* Section Headers */
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .section-header h2 { font-size: 2.2rem; margin-bottom: 10px; }
+        .section-header p { color: #666; max-width: 600px; margin: auto; }
+
+        /* Property Grid */
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 25px;
+        }
+
+        .card { 
+            background: white; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex; 
+            flex-direction: column;
+        }
+        .card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .card-img { 
+            height: 200px; 
+            background: linear-gradient(135deg, #e8e4de 0%, #d4cfc5 100%);
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: #999;
+            font-size: 0.9rem;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+        .card-img iframe {
+            pointer-events: none;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--terracotta);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .card-badge.financing { background: var(--sage); }
+        .card-badge.bundle { background: #5B8C5A; }
+        .card-badge.structure { background: #8B6914; }
+
+        .card-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        
+        .card-location { 
+            font-size: 1.3rem; 
+            font-weight: 700; 
+            margin-bottom: 5px;
+            color: var(--charcoal);
+        }
+        
+        .card-specs { 
+            color: var(--sage); 
+            font-weight: 600; 
+            font-size: 0.85rem; 
+            margin-bottom: 12px;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .card-price { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: var(--terracotta);
+            margin-bottom: 10px;
+        }
+        
+        .card-desc { 
+            font-size: 0.9rem; 
+            color: #666; 
+            margin-bottom: 15px;
+            flex-grow: 1;
+            line-height: 1.5;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .card-link { 
+            text-decoration: none; 
+            color: var(--terracotta); 
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .card-link:hover { color: #a6663f; }
+
+        .map-link {
+            color: #888;
+            font-size: 0.8rem;
+            text-decoration: none;
+        }
+        .map-link:hover { color: var(--terracotta); }
+
+        /* Financing CTA */
+        .financing-section {
+            background: linear-gradient(135deg, var(--sage) 0%, #7a9b6d 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .financing-section h2 { font-size: 2rem; margin-bottom: 15px; }
+        .financing-section p { max-width: 600px; margin: 0 auto 25px; opacity: 0.95; }
+        .financing-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .financing-benefit { text-align: center; }
+        .financing-benefit strong { display: block; font-size: 1.8rem; }
+        .financing-benefit span { font-size: 0.85rem; opacity: 0.9; }
+
+        /* Contact Form */
+        .contact-section { 
+            background: var(--cream); 
+            border-radius: 16px; 
+            padding: 50px; 
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .contact-info h3 { margin-bottom: 20px; color: var(--charcoal); }
+        .contact-info p { margin-bottom: 15px; color: #555; }
+        .contact-info a { color: var(--terracotta); text-decoration: none; font-weight: 600; }
+        .contact-info a:hover { text-decoration: underline; }
+        
+        .contact-form { display: grid; gap: 15px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        
+        input, select, textarea { 
+            width: 100%; 
+            padding: 14px 16px; 
+            border: 1px solid #ddd; 
+            border-radius: 6px; 
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--terracotta);
+        }
+        textarea { height: 120px; resize: vertical; }
+
+        /* Footer */
+        footer { 
+            text-align: center; 
+            padding: 50px 20px; 
+            background: var(--charcoal); 
+            color: white; 
+        }
+        .footer-logo { font-size: 1.3rem; font-weight: 700; margin-bottom: 15px; }
+        .footer-logo span { color: var(--sand); }
+        footer p { font-size: 0.85rem; line-height: 1.8; opacity: 0.8; max-width: 600px; margin: auto; }
+        footer a { color: var(--sand); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .footer-disclaimer { 
+            margin-top: 30px; 
+            padding-top: 30px; 
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.75rem;
+            opacity: 0.6;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            header p { font-size: 1.1rem; }
+            header { background-attachment: scroll; }
+            .nav-links { display: none; }
+            .property-grid { grid-template-columns: 1fr; }
+            .contact-section { padding: 30px 20px; }
+            .contact-grid { grid-template-columns: 1fr; gap: 30px; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">Mojave<span>Retreats</span></a>
+        <div class="nav-links">
+            <a href="#properties">Properties</a>
+            <a href="#financing">Financing</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="hero-badge">✨ SELLER FINANCING AVAILABLE</div>
+        <h1>Your Desert Retreat Awaits</h1>
+        <p>Own a piece of the California High Desert. Land in Joshua Tree, Yucca Valley, Wonder Valley & beyond. No banks. Flexible terms. Your timeline.</p>
+        <div class="hero-buttons">
+            <a href="#properties" class="btn">View Properties</a>
+            <a href="#contact" class="btn btn-outline">Get In Touch</a>
+        </div>
+    </header>
+
+    <section class="value-props">
+        <div class="value-grid">
+            <div class="value-item">
+                <div class="value-icon">💰</div>
+                <h3>Seller Financing</h3>
+                <p>No bank qualifying. We carry the note with flexible down payments and terms that work for you.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">🏜️</div>
+                <h3>Prime Locations</h3>
+                <p>Joshua Tree, Yucca Valley, Wonder Valley — the hottest desert markets in SoCal.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">📋</div>
+                <h3>Direct From Owner</h3>
+                <p>No agents, no middlemen. Deal directly with us for faster closings and better pricing.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">🔑</div>
+                <h3>Variety of Options</h3>
+                <p>From 1-acre lots to 18+ acre parcels. Residential, commercial, and recreational zoning.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container" id="properties">
+        <div class="section-header">
+            <h2>Available Properties</h2>
+            <p>Browse our current portfolio of High Desert land. Click any property to inquire.</p>
+        </div>
+        <div id="property-grid" class="property-grid"></div>
+    </div>
+
+    <section class="financing-section" id="financing">
+        <h2>Seller Financing Makes It Easy</h2>
+        <p>Skip the banks. We offer owner-carry financing on most properties with flexible terms designed around your budget.</p>
+        <div class="financing-benefits">
+            <div class="financing-benefit">
+                <strong>No</strong>
+                <span>Bank Qualifying</span>
+            </div>
+            <div class="financing-benefit">
+                <strong>Low</strong>
+                <span>Down Payments</span>
+            </div>
+            <div class="financing-benefit">
+                <strong>Flexible</strong>
+                <span>Monthly Terms</span>
+            </div>
+            <div class="financing-benefit">
+                <strong>Fast</strong>
+                <span>Closings</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="contact-section" id="contact">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Let's Talk</h3>
+                    <p>Interested in a property? Have questions about seller financing? Reach out — we respond within 24 hours.</p>
+                    <p>✉️ <a href="mailto:info@mojaveretreats.com">info@mojaveretreats.com</a></p>
+                </div>
+                <form action="https://formspree.io/f/xnjjjzgv" method="POST" class="contact-form">
+                    <div class="form-row">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="tel" name="phone" placeholder="Phone Number">
+                    </div>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                    <select name="property_interest" id="property-select">
+                        <option value="General Inquiry">Which property interests you?</option>
+                    </select>
+                    <textarea name="message" placeholder="Tell us about yourself or ask a question..."></textarea>
+                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">Mojave<span>Retreats</span></div>
+        <p>
+            Curated desert land in California's High Desert.<br>
+            Joshua Tree • Yucca Valley • Wonder Valley • Lucerne Valley
+        </p>
+        <p style="margin-top: 15px;"><a href="privacy.html">Privacy Policy</a></p>
+        <p class="footer-disclaimer">
+            <strong>Disclaimer:</strong> Owner is selling personal investment property directly. Not a licensed real estate broker. 
+            Buyer is responsible for verifying all utilities, zoning, access, and property boundaries with San Bernardino County.
+        </p>
+    </footer>
+
+    <script>
+        // =====================================================
+        // 📝 PROPERTY DATA — EDIT YOUR LISTINGS HERE
+        // =====================================================
+        
+        const properties = [
+            { 
+                location: "Joshua Tree", 
+                acres: "1.25", 
+                zoning: "Residential", 
+                price: "$22,500",
+                apn: "0604-201-05-0000",
+                note: "Cleared and compacted, ready for RV or camper. Great starter property near JT village.", 
+                tag: "financing",
+                tagText: "Financing",
+                mapLink: "https://maps.app.goo.gl/ksnN3HJnhExanqyv9",
+                mapEmbed: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1166.4416659566746!2d-116.27277406702602!3d34.148769158285624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDA4JzU1LjMiTiAxMTbCsDE2JzIyLjUiVw!5e1!3m2!1sen!2sus!4v1768619755017!5m2!1sen!2sus"
+            },
+            { 
+                location: "Yucca Valley", 
+                acres: "1.25", 
+                zoning: "Industrial", 
+                price: "$29,000",
+                apn: "0597-061-29-0-000",
+                note: "Fenced industrial lot with 12 giant granite boulders + piles of landscaping stone.", 
+                tag: "financing",
+                tagText: "Financing",
+                mapLink: "https://maps.app.goo.gl/uJuwGD5g5k9s4itH6",
+                mapEmbed: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d501.40930506621004!2d-116.42966386670408!3d34.175745938502075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDEwJzMxLjkiTiAxMTbCsDI1JzQ3LjgiVw!5e1!3m2!1sen!2sus!4v1768619864537!5m2!1sen!2sus"
+            },
+            { 
+                location: "Flamingo Heights", 
+                acres: "0.7", 
+                zoning: "Commercial", 
+                price: "$49,000",
+                apn: "0629-093-09-0-000",
+                note: "Highway 247 frontage across from La Copine restaurant. Prime visibility. Adjacent lot available.", 
+                tag: "bundle",
+                tagText: "Bundle Available",
+                mapLink: "https://maps.app.goo.gl/cLe4K7SZXnS7Lnv17",
+                mapEmbed: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1210.9559030250273!2d-116.43837456914859!3d34.23782358929528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDE0JzE4LjAiTiAxMTbCsDI2JzIwLjciVw!5e1!3m2!1sen!2sus!4v1768619980785!5m2!1sen!2sus"
+            },
+            { 
+                location: "Flamingo Heights", 
+                acres: "0.8", 
+                zoning: "Commercial", 
+                price: "$39,000",
+                apn: "0629-093-10-0-000",
+                note: "Adjacent to 0.7ac parcel above. Bundle both for 1.5 acres of HWY commercial.", 
+                tag: "bundle",
+                tagText: "Bundle & Save",
+                mapLink: "https://maps.app.goo.gl/cLe4K7SZXnS7Lnv17",
+                mapEmbed: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1210.9559030250273!2d-116.43837456914859!3d34.23782358929528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDE0JzE4LjAiTiAxMTbCsDI2JzIwLjciVw!5e1!3m2!1sen!2sus!4v1768619980785!5m2!1sen!2sus"
+            },
+            { 
+                location: "Wonder Valley", 
+                acres: "5", 
+                zoning: "SFR", 
+                price: "$79,000",
+                apn: "0624-301-28-0000",
+                note: "House gutted to studs — your blank canvas. Old power drop and water tank on site.", 
+                tag: "structure",
+                tagText: "Structure",
+                mapLink: "https://maps.app.goo.gl/53yNSY83VR8xmknM7"
+            },
+            { 
+                location: "Wonder Valley", 
+                acres: "5", 
+                zoning: "Residential", 
+                price: "$22,000",
+                apn: "0626-151-24-0000",
+                note: "Power lines along northern boundary. Easy utility connection. Adjacent 5ac lot available.", 
+                tag: "bundle",
+                tagText: "Bundle Available",
+                mapLink: "https://maps.app.goo.gl/ZPb8kUPSqRr34GuL7"
+            },
+            { 
+                location: "Wonder Valley", 
+                acres: "5", 
+                zoning: "Residential", 
+                price: "$20,000",
+                apn: "0626-151-25-0000",
+                note: "Adjacent to parcel above. Power nearby. Bundle both for 10 acres with financing.", 
+                tag: "bundle",
+                tagText: "Bundle & Save",
+                mapLink: "https://maps.app.goo.gl/6VYbBoQw11Qgn7uL8"
+            },
+            { 
+                location: "Lucerne Valley", 
+                acres: "5", 
+                zoning: "Rec Cabin", 
+                price: "$69,000",
+                apn: "0450-301-43-0000",
+                note: "Fenced with rec cabin. Previously had power. Amazing views of valley and mountains.", 
+                tag: "structure",
+                tagText: "Cabin Included",
+                mapLink: "https://maps.app.goo.gl/TnHsiZT33TxyXb739"
+            },
+            { 
+                location: "Sunfair", 
+                acres: "9.15", 
+                zoning: "Residential", 
+                price: "$80,000",
+                apn: "0606-351-10-0-000",
+                note: "HUGE 9+ acre parcel adjacent to music festival/campground. Adjacent 9ac available.", 
+                tag: "bundle",
+                tagText: "18+ Acres Avail",
+                mapLink: "https://maps.app.goo.gl/TfDkVZiCixD8Fv4o9"
+            },
+            { 
+                location: "Sunfair", 
+                acres: "9.01", 
+                zoning: "Residential", 
+                price: "$75,000",
+                apn: "0606-351-12-0-000",
+                note: "Adjacent to 9.15ac parcel. Near music fest. Bundle for 18+ acres of residential.", 
+                tag: "bundle",
+                tagText: "Bundle & Save",
+                mapLink: "https://maps.app.goo.gl/YBXzjPQdwkHXCyoH8"
+            },
+            { 
+                location: "Strawberry Lodge", 
+                acres: "Small Lot", 
+                zoning: "Residential", 
+                price: "$4,900",
+                apn: "0339-241-55-0000",
+                note: "Affordable mountain lot in San Bernardino forest area. Escape the desert heat!", 
+                tag: "financing",
+                tagText: "Best Value",
+                mapLink: "https://maps.app.goo.gl/QT3RkGL2r9tZFvhA6"
+            }
+        ];
+
+        // =====================================================
+        // BUILD CARDS — NO NEED TO EDIT BELOW THIS LINE
+        // =====================================================
+        const grid = document.getElementById('property-grid');
+        const select = document.getElementById('property-select');
+
+        properties.forEach((prop) => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            
+            let badgeClass = prop.tag || '';
+            let mapHtml = prop.mapLink 
+                ? `<a href="${prop.mapLink}" target="_blank" class="map-link">📍 View Map</a>`
+                : `<span class="map-link" style="opacity: 0.5;">📍 Map Coming</span>`;
+            
+            // Use map embed as image if available, otherwise show placeholder
+            let imageHtml = prop.mapEmbed 
+                ? `<iframe src="${prop.mapEmbed}" style="width:100%; height:100%; border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+                : `📷 Photo Coming Soon`;
+            
+            card.innerHTML = `
+                <div class="card-img">
+                    ${prop.tagText ? `<span class="card-badge ${badgeClass}">${prop.tagText}</span>` : ''}
+                    ${imageHtml}
+                </div>
+                <div class="card-body">
+                    <div class="card-location">${prop.location}</div>
+                    <div class="card-specs">
+                        <span>📐 ${prop.acres} Acres</span>
+                        <span>🏷️ ${prop.zoning}</span>
+                    </div>
+                    <div class="card-price">${prop.price}</div>
+                    <p class="card-desc">${prop.note}</p>
+                    <div class="card-footer">
+                        <a href="#contact" class="card-link" onclick="updateForm('${prop.location}', '${prop.acres}')">Inquire Now →</a>
+                        ${mapHtml}
+                    </div>
+                </div>
+            `;
+            grid.appendChild(card);
+
+            // Add to dropdown
+            const opt = document.createElement('option');
+            opt.value = `${prop.location} - ${prop.acres} Acres (APN: ${prop.apn})`;
+            opt.textContent = `${prop.location} - ${prop.acres} Acres`;
+            select.appendChild(opt);
+        });
+
+        function updateForm(loc, acres) {
+            const select = document.getElementById('property-select');
+            const match = Array.from(select.options).find(o => o.value.includes(loc) && o.value.includes(acres));
+            if (match) select.value = match.value;
+        }
+    </script>
+</body>
+</html>
