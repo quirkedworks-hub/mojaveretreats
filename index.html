@@ -395,7 +395,7 @@
                 <div class="contact-info">
                     <h3>Let's Talk</h3>
                     <p>Interested in a property? Have questions about seller financing? Reach out — we respond within 24 hours.</p>
-                    <p>✉️ <a href="/cdn-cgi/l/email-protection#a5cccbc3cae5c8cacfc4d3c0d7c0d1d7c0c4d1d68bc6cac8"><span class="__cf_email__" data-cfemail="84edeae2ebc4e9ebeee5f2e1f6e1f0f6e1e5f0f7aae7ebe9">[email&#160;protected]</span></a></p>
+                    <p>✉️ <a href="mailto:info@mojaveretreats.com">info@mojaveretreats.com</a></p>
                 </div>
                 <form action="https://formspree.io/f/xnjjjzgv" method="POST" class="contact-form">
                     <div class="form-row">
@@ -426,7 +426,7 @@
         </p>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // =====================================================
         // 📝 PROPERTY DATA — EDIT YOUR LISTINGS HERE
         // =====================================================
@@ -615,4 +615,14 @@
         });
 
         function updateForm(loc, acres) {
-            const select 
+            const select = document.getElementById('property-select');
+            for (let i = 0; i < select.options.length; i++) {
+                if (select.options[i].textContent.includes(loc) && select.options[i].textContent.includes(acres)) {
+                    select.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
