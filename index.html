@@ -115,8 +115,14 @@
         /* Property Grid */
         .property-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 25px;
+        }
+        
+        @media (max-width: 768px) {
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .card { 
@@ -166,6 +172,28 @@
         .card-badge.financing { background: var(--sage); }
         .card-badge.bundle { background: #5B8C5A; }
         .card-badge.structure { background: #8B6914; }
+
+        /* Bundle Wrapper - surrounds BOTH cards */
+        .bundle-wrapper {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+            border-radius: 16px;
+            border: 4px solid;
+            background: rgba(255,255,255,0.5);
+            grid-column: span 2;
+        }
+        .bundle-wrapper.bundle-group-1 { border-color: #5B8C5A; background: rgba(91,140,90,0.08); }
+        .bundle-wrapper.bundle-group-2 { border-color: #7B68EE; background: rgba(123,104,238,0.08); }
+        .bundle-wrapper.bundle-group-3 { border-color: #CD853F; background: rgba(205,133,63,0.08); }
+        
+        @media (max-width: 768px) {
+            .bundle-wrapper {
+                grid-template-columns: 1fr;
+                grid-column: span 1;
+            }
+        }
 
         .card-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
         
@@ -465,6 +493,7 @@
                 note: "Highway 247 frontage across from La Copine restaurant. Prime visibility. Adjacent lot available.", 
                 tag: "bundle",
                 tagText: "Bundle Available",
+                bundleGroup: 1,
                 mapLink: "https://maps.app.goo.gl/cLe4K7SZXnS7Lnv17",
                 mapEmbed: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1210.9559030250273!2d-116.43837456914859!3d34.23782358929528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDE0JzE4LjAiTiAxMTbCsDI2JzIwLjciVw!5e1!3m2!1sen!2sus!4v1768619980785!5m2!1sen!2sus"
             },
@@ -477,6 +506,7 @@
                 note: "Adjacent to 0.7ac parcel above. Bundle both for 1.5 acres of HWY commercial.", 
                 tag: "bundle",
                 tagText: "Bundle & Save",
+                bundleGroup: 1,
                 mapLink: "https://maps.app.goo.gl/cLe4K7SZXnS7Lnv17",
                 mapEmbed: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1210.9559030250273!2d-116.43837456914859!3d34.23782358929528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDE0JzE4LjAiTiAxMTbCsDI2JzIwLjciVw!5e1!3m2!1sen!2sus!4v1768619980785!5m2!1sen!2sus"
             },
@@ -501,6 +531,7 @@
                 note: "Power lines along northern boundary. Easy utility connection. Adjacent 5ac lot available.", 
                 tag: "bundle",
                 tagText: "Bundle Available",
+                bundleGroup: 2,
                 mapLink: "https://maps.app.goo.gl/ZPb8kUPSqRr34GuL7",
                 mapEmbed: "https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d10205.219720218129!2d-115.9470115121522!3d34.178542428724896!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDExJzAwLjQiTiAxMTXCsDU2JzQzLjMiVw!5e1!3m2!1sen!2sus!4v1768624636931!5m2!1sen!2sus"
             },
@@ -513,6 +544,7 @@
                 note: "Adjacent to parcel above. Power nearby. Bundle both for 10 acres with financing.", 
                 tag: "bundle",
                 tagText: "Bundle & Save",
+                bundleGroup: 2,
                 mapLink: "https://maps.app.goo.gl/6VYbBoQw11Qgn7uL8",
                 mapEmbed: "https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d10205.219720218129!2d-115.9470115121522!3d34.178542428724896!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDExJzAwLjQiTiAxMTXCsDU2JzM1LjQiVw!5e1!3m2!1sen!2sus!4v1768624679197!5m2!1sen!2sus"
             },
@@ -537,6 +569,7 @@
                 note: "HUGE 9+ acre parcel adjacent to music festival/campground. Adjacent 9ac available.", 
                 tag: "bundle",
                 tagText: "18+ Acres Avail",
+                bundleGroup: 3,
                 mapLink: "https://maps.app.goo.gl/TfDkVZiCixD8Fv4o9",
                 mapEmbed: "https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d6244.337128218703!2d-116.23923568261014!3d34.1992197128563!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDEyJzEyLjAiTiAxMTbCsDE0JzI5LjIiVw!5e1!3m2!1sen!2sus!4v1768624804716!5m2!1sen!2sus"
             },
@@ -549,6 +582,7 @@
                 note: "Adjacent to 9.15ac parcel. Near music fest. Bundle for 18+ acres of residential.", 
                 tag: "bundle",
                 tagText: "Bundle & Save",
+                bundleGroup: 3,
                 mapLink: "https://maps.app.goo.gl/YBXzjPQdwkHXCyoH8",
                 mapEmbed: "https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d6244.337128218703!2d-116.23923568261014!3d34.1992197128563!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDEyJzA0LjMiTiAxMTbCsDE0JzMwLjIiVw!5e1!3m2!1sen!2sus!4v1768624828214!5m2!1sen!2sus"
             },
@@ -572,7 +606,8 @@
         const grid = document.getElementById('property-grid');
         const select = document.getElementById('property-select');
 
-        properties.forEach((prop) => {
+        // Helper function to create a card element
+        function createCard(prop) {
             const card = document.createElement('div');
             card.className = 'card';
             
@@ -581,7 +616,6 @@
                 ? `<a href="${prop.mapLink}" target="_blank" class="map-link">📍 View Map</a>`
                 : `<span class="map-link" style="opacity: 0.5;">📍 Map Coming</span>`;
             
-            // Use map embed as image if available, otherwise show placeholder
             let imageHtml = prop.mapEmbed 
                 ? `<iframe src="${prop.mapEmbed}" style="width:100%; height:100%; border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
                 : `📷 Photo Coming Soon`;
@@ -605,9 +639,43 @@
                     </div>
                 </div>
             `;
-            grid.appendChild(card);
+            return card;
+        }
 
-            // Add to dropdown
+        // Group properties by bundleGroup
+        const bundleGroups = {};
+        const standaloneProps = [];
+        
+        properties.forEach(prop => {
+            if (prop.bundleGroup) {
+                if (!bundleGroups[prop.bundleGroup]) {
+                    bundleGroups[prop.bundleGroup] = [];
+                }
+                bundleGroups[prop.bundleGroup].push(prop);
+            } else {
+                standaloneProps.push(prop);
+            }
+        });
+
+        // Render standalone properties first
+        standaloneProps.forEach(prop => {
+            grid.appendChild(createCard(prop));
+        });
+
+        // Render bundle groups in wrappers
+        Object.keys(bundleGroups).forEach(groupNum => {
+            const wrapper = document.createElement('div');
+            wrapper.className = `bundle-wrapper bundle-group-${groupNum}`;
+            
+            bundleGroups[groupNum].forEach(prop => {
+                wrapper.appendChild(createCard(prop));
+            });
+            
+            grid.appendChild(wrapper);
+        });
+
+        // Add all to dropdown
+        properties.forEach(prop => {
             const opt = document.createElement('option');
             opt.value = `${prop.location} - ${prop.acres} Acres (APN: ${prop.apn})`;
             opt.textContent = `${prop.location} - ${prop.acres} Acres`;
